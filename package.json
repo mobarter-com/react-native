@@ -8,7 +8,16 @@
     "android": "expo run:android",
     "ios": "expo run:ios",
     "test": "jest --watchAll",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "#graphql": "Graphql scripts",
+    "gqlgen": "graphql-codegen",
+    "gen": "graphql-codegen --config codegen.ts",
+    "genY": "graphql-codegen --config codegen.yml",
+    "build:a": "eas build --platform android",
+    "b:da": "eas build --profile development --platform android",
+    "b:local": "eas build --platform android --local",
+    "build:ios": "eas build --platform ios",
+    "gql watch": "graphql-codegen -w"
   },
   "jest": {
     "preset": "jest-expo"
