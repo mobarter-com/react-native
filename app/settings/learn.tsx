@@ -20,7 +20,20 @@ export default function Page() {
     <>
       <HeaderBar title="Learn" showBackBtn backTo="/settings" />
       <Wrapper>
-       
+        <TView style={{ width: '100%' }}>
+          {data?.static_getLinks
+            .filter((v) => v.group === StaticLinkGroup.Docs)
+            .map((val, i) => (
+              <Row
+                key={i}
+                title={val.title}
+                desc={val.desc || undefined}
+                onClick={() => {
+                  Linking.openURL(val.url)
+                }}
+              />
+            ))}
+        </TView>
       </Wrapper>
     </>
   )
