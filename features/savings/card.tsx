@@ -31,7 +31,85 @@ export function SavingsCard(params: {
           borderRadius: 15,
         }}
       >
-   
+        <TView
+          style={{
+            width: '100%',
+            maxWidth: '100%',
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            backgroundColor: theme.card,
+            marginBottom: 10,
+          }}
+        >
+          <TView style={{ backgroundColor: theme.card, width: '55%' }}>
+            <TText style={{ fontSize: 18, fontWeight: '700', color: theme.muted }}>
+              {params.title}
+            </TText>
+            <TText
+              style={{
+                backgroundColor: theme.card,
+                fontSize: 11,
+                fontWeight: '300',
+                width: '100%',
+                color: theme.muted,
+                lineHeight: 16,
+              }}
+            >
+              {params.desc}
+            </TText>
+          </TView>
+
+          <TView
+            style={{
+              // paddingVertical: 1,
+              paddingHorizontal: 10,
+              borderRadius: 40,
+              backgroundColor: theme.primary,
+              // width: 'auto',
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'center',
+              height: 24,
+            }}
+          >
+            <TText style={{ fontSize: 11, fontWeight: '600', color: '#fff' }}>
+              {params.percentage}
+            </TText>
+          </TView>
+        </TView>
+
+        <TView
+          style={{
+            backgroundColor: theme.card,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+          }}
+        >
+          <TText
+            style={{
+              padding: 0,
+              fontSize: 17,
+              fontWeight: '700',
+              letterSpacing: 1.1,
+              margin: 0,
+            }}
+          >
+            {params.balance}
+          </TText>
+          <TText
+            style={{
+              fontSize: 13,
+              fontWeight: '500',
+              padding: 0,
+              margin: 0,
+              color: '#05b23f',
+            }}
+          >
+            {params.amountAdded}
+          </TText>
+        </TView>
+      </TView>
 
       <TView
         style={{
