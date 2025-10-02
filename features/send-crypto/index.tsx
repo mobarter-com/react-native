@@ -56,7 +56,24 @@ export default function SendCryptoScreen() {
 
       return
     } else {
-      
+      transferERC20({
+        recipient: recipient.value,
+        amount: amount.value,
+        token: token!.address,
+      })
+        .then((hash) => {
+          console.log('Transaction Hash:', hash)
+          response.showSuccess('Transaction Successful')
+          setAmount({ value: '', error: undefined })
+        })
+        .catch((e) => {
+          console.log(e)
+          console.log(JSON.stringify(e))
+          response.showError(e.message)
+        })
+        .finally(() => {
+          response.showLoading(false)
+        })
     }
 
 
