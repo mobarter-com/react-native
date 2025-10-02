@@ -21,7 +21,45 @@ export default function SendCryptoScreen() {
   // const theme = AppHooks.useColor()
 
   const handleSend = async () => {
-   
+    if (recipient === undefined || recipient.value === undefined) {
+      setRecipient((prev) => {
+        return { error: 'Enter a wallet address', value: prev?.value }
+      })
+      return
+    }
+
+    if (amount === undefined || amount.value === undefined) {
+      setAmount((prev) => {
+        return { error: 'Enter a valid amount', value: prev?.value }
+      })
+      return
+    }
+
+    if (token === undefined || token === null) {
+      setTokenErr('Select a token')
+      return
+    }
+
+    response.showLoading(true)
+    if (token?.symbol === 'CELO') {
+      transferNative({
+        recipient: recipient.value,
+        amount: amount.value,
+      })
+        .then(() => {
+          response.showSuccess('Transaction Successful')
+          setAmount({ value: '', error: undefined })
+        })
+        .catch(() => {
+          response.showError('Transaction Failed')
+        })
+
+      return
+    } else {
+      
+    }
+
+
 
   }
 
