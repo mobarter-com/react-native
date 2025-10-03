@@ -20,7 +20,30 @@ export default function Create() {
   const store = useSavings()
 
   const handleSubmit = () => {
-
+    if (!title?.value) {
+      setTitle({ error: 'Enter a title', value: undefined })
+      return
+    }
+    if (!amount?.value) {
+      setAmount({ error: 'Enter an amount', value: undefined })
+      return
+    }
+    if (!duration) {
+      setDuration({ error: 'Enter an amount', title: '', subtitle: '' })
+      return
+    }
+    store.update({
+      fixedDepositList: [
+        ...store.fixedDepositList,
+        {
+          title: title.value,
+          amount: amount.value,
+          currency: 'cNGN',
+          duration: duration.title,
+          interestRate: duration.subtitle,
+        },
+      ],
+    })
   }
   return (
     <TView style={{ width: '100%', alignItems: 'center', justifyContent: 'center', rowGap: 20 }}>
